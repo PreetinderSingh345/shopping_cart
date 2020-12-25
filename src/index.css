@@ -11,6 +11,8 @@ body {
 
 }
 
+/* cart item */
+
 .cart-item{
 
   margin: 20px;
@@ -19,6 +21,35 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;  
+  align-items: center;
   border: 2px solid black;
+
+}
+
+/* cart item options container */
+
+.cart-item-options-container{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+
+}
+
+/* cart item options */
+
+.cart-item-options{
+
+  height: 20px;
+  width: 20px;
+
+}
+
+/* images inside cart item options */
+
+.cart-item-options img{
+
+  height: inherit;
+  width: inherit;
 
 }

@@ -6,9 +6,31 @@ import React from "react";
 
 class CartItem extends React.Component{
 
+    // defining the constructor, calling the super constructor(of the React.Component class) and defining the state object for the cart item component
+
+    constructor(){
+
+        super();
+
+        this.state={           
+
+            img: "",
+            title: "Phone",
+            description: "A phone",
+            price: "999",
+            qty: "1"
+
+        }
+    }    
+
     // rendering the cart item component that returns the jsx for the cart item
 
     render(){
+
+        // getting the values of the properties of the state object(object restructuring)
+
+        const {title, description, price, qty}=this.state;
+
         return(            
 
             // cart item
@@ -31,10 +53,10 @@ class CartItem extends React.Component{
 
                         {/* cart item heading, description, price and quantity */}
 
-                        <div className="cart-item-heading" style={{fontSize: 25}}>Phone</div>
-                        <div className="cart-item-description" style={{color: "grey"}}>A phone</div>
-                        <div className="cart-item-price" style={{color: "grey"}}>Rs: 999</div>
-                        <div className="cart-item-quantity" style={{color: "grey"}}>Qty: 1</div>
+                        <div className="cart-item-heading" style={{fontSize: 25}}>{title}</div>
+                        <div className="cart-item-description" style={{color: "grey"}}>{description}</div>
+                        <div className="cart-item-price" style={{color: "grey"}}>Rs: {price}</div>
+                        <div className="cart-item-quantity" style={{color: "grey"}}>Qty: {qty}</div>
 
                     </div>                    
 
@@ -44,10 +66,16 @@ class CartItem extends React.Component{
 
                         {/* cart item options */}
 
-                        <div className="cart-item-options dec-option" ></div>
-                        <div className="cart-item-options inc-option" ></div>
+                        <div className="cart-item-options dec-option" >
+                            <img src="https://www.flaticon.com/svg/static/icons/svg/992/992683.svg" alt="minus"/>
+                        </div>
 
-                        <div className="cart-item-options delete-option"></div>
+                        <div className="cart-item-options inc-option" >
+                            <img src="https://www.flaticon.com/svg/static/icons/svg/992/992651.svg" alt="plus"/></div>                      
+
+                        <div className="cart-item-options delete-option">
+                            <img src="https://www.flaticon.com/svg/static/icons/svg/1345/1345874.svg" alt="delete"/>
+                        </div>
 
                     </div>
 
@@ -56,6 +84,7 @@ class CartItem extends React.Component{
             </div>
 
         );
+
     }
 
 }
