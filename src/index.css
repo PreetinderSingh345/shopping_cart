@@ -10,3 +10,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
 }
+
+.cart-item{
+
+  margin: 20px;
+  padding: 10px;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+  border: 2px solid black;
+
+}
