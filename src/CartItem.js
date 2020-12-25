@@ -17,22 +17,56 @@ class CartItem extends React.Component{
             img: "",
             title: "Phone",
             description: "A phone",
-            price: "999",
-            qty: "1"
+            price: 999,
+            qty: 1
 
         }
 
-    }    
+    }   
+    
+    // decrease quantity function to decrease the quantity of the item
 
     decreaseQuantity=()=>{
+
+        // setting the minimum quantity of the item to be 0
+
+        const {qty}=this.state;
                     
-        console.log(this.state);        
+        if(qty==0){
+
+            alert("Cannot decrease quantity futher");
+            return ;
+
+        }
+
+        this.setState((prevState)=>{
+            return {
+                qty: prevState.qty-1
+            }
+        });
 
     }
 
-    increaseQuantity=()=>{
+    // increase quantity function to increase the quantity of the item
 
-        console.log(this.state);
+    increaseQuantity=()=>{   
+
+        // setting the maximum quantity of the item to be 10
+
+        const {qty}=this.state;
+        
+        if(qty==10){
+
+            alert("Cannot increase quantity further");
+            return ;
+
+        }
+
+        this.setState((prevState)=>{
+            return {
+                qty: prevState.qty+1
+            }
+        });
         
     }
 
