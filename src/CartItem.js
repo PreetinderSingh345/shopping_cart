@@ -21,7 +21,20 @@ class CartItem extends React.Component{
             qty: "1"
 
         }
+
     }    
+
+    decreaseQuantity=()=>{
+                    
+        console.log(this.state);        
+
+    }
+
+    increaseQuantity=()=>{
+
+        console.log(this.state);
+        
+    }
 
     // rendering the cart item component that returns the jsx for the cart item
 
@@ -66,11 +79,11 @@ class CartItem extends React.Component{
 
                         {/* cart item options */}
 
-                        <div className="cart-item-options dec-option" >
+                        <div className="cart-item-options dec-option" onClick={this.decreaseQuantity}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992683.svg" alt="minus"/>
                         </div>
 
-                        <div className="cart-item-options inc-option" >
+                        <div className="cart-item-options inc-option" onClick={this.increaseQuantity}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992651.svg" alt="plus"/></div>                      
 
                         <div className="cart-item-options delete-option">
