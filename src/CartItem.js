@@ -4,25 +4,7 @@ import React from "react";
 
 // defining and exporting the cart item class that extends the React.component class
 
-class CartItem extends React.Component{
-
-    // defining the constructor, calling the super constructor(of the React.Component class) and defining the state object for the cart item component
-
-    constructor(){
-
-        super();
-
-        this.state={           
-
-            img: "",
-            title: "Phone",
-            description: "A phone",
-            price: 999,
-            qty: 1
-
-        }
-
-    }   
+class CartItem extends React.Component{    
     
     // decrease quantity function to decrease the quantity of the item
 
@@ -74,15 +56,15 @@ class CartItem extends React.Component{
 
     render(){
 
-        // getting the values of the properties of the state object(object restructuring)
+        // getting the values of the property object of the props object(object restructuring)
 
-        const {title, description, price, qty}=this.state;
+        const {description, title, price, qty}=this.props.product;        
 
         return(            
 
             // cart item
-
-            <div className="cart-item">
+            
+            <div className="cart-item">                
 
                 {/* cart item image container */}
 
