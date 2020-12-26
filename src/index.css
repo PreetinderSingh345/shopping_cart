@@ -53,3 +53,12 @@ body {
   width: inherit;
 
 }
+
+/* cart */
+
+.cart{
+
+  display: flex;
+  flex-direction: column;
+
+}

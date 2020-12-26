@@ -1,7 +1,7 @@
-// importing react and CartItem component
+// importing react and Cart component
 
 import React from "react";
-import CartItem from "./CartItem";
+import Cart from "./Cart";
 
 // defining and exporting the App function which returns the App component
 
@@ -9,7 +9,7 @@ function App() {
   return (
 
     <div className="App">
-      <CartItem/>
+      <Cart/>
     </div>
 
   );
