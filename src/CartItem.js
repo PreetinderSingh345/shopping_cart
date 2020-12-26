@@ -10,9 +10,18 @@ class CartItem extends React.Component{
 
     render(){        
 
-        // getting the values of the property object of the props object(object restructuring)
+        //getting the values of the needed properties and functions from this.props.product and this.props(object restructuring) 
 
-        const {description, title, price, qty}=this.props.product;              
+        const {description, title, price, qty}=this.props.product;    
+
+        const {
+
+            product, 
+            onIncreaseQuantity, 
+            onDecreaseQuantity, 
+            onDelete
+        
+        }=this.props;      
 
         return(            
 
@@ -49,16 +58,16 @@ class CartItem extends React.Component{
 
                         {/* cart item options */}
 
-                        {/* calling the on increase and on decrease quantity functions of the props on the click of plus and minus buttons respectively and passing to them the product */}
+                        {/* calling the on increase, on decrease quantity and on delete functions of the props on the click of plus, minus and delete buttons respectively and passing to them the product(product id in case of delete) */}
 
-                        <div className="cart-item-options dec-option" onClick={()=>this.props.onDecreaseQuantity(this.props.product)}>
+                        <div className="cart-item-options dec-option" onClick={()=>onDecreaseQuantity(product)}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992683.svg" alt="minus"/>
                         </div>
 
-                        <div className="cart-item-options inc-option" onClick={()=>(this.props.onIncreaseQuantity(this.props.product))}>
+                        <div className="cart-item-options inc-option" onClick={()=>onIncreaseQuantity(product)}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992651.svg" alt="plus"/></div>                      
 
-                        <div className="cart-item-options delete-option">
+                        <div className="cart-item-options delete-option" onClick={()=>onDelete(product.id)}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/1345/1345874.svg" alt="delete"/>
                         </div>
 

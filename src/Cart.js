@@ -69,7 +69,7 @@ class Cart extends React.Component{
             return ;
         }
 
-        // making chnages in the quantity of the product and setting the state to the new products array
+        // making chnages in the quantity of the product and setting the state of products to the new products array
 
         products[index].qty--;
 
@@ -97,7 +97,7 @@ class Cart extends React.Component{
         
         }
 
-        // making chnages in the quantity of the product and setting the state to the new products array
+        // making chnages in the quantity of the product and setting the state of products to the new products array
 
         products[index].qty++;
 
@@ -106,6 +106,26 @@ class Cart extends React.Component{
         });
 
     }    
+
+    // handle delete function to delete the product associated with the provided id
+
+    handleDelete=(id)=>{
+
+        // getting the products array and filtering the array to remove the product with the id i.e. passed as the argument
+
+        const {products}=this.state;
+
+        const items=products.filter((item)=>{
+            return item.id!=id
+        })
+
+        // setting the state of products to the items
+
+        this.setState({
+            products: items
+        })
+
+    }
 
     render(){
 
@@ -117,7 +137,7 @@ class Cart extends React.Component{
 
             <div className="cart">
 
-                {/* iterating over the porducts and returning each CartItem component with its props object,containing product, key properties and functions to decrease and increase the quantity */}
+                {/* iterating over the porducts and returning each CartItem component with its props object,containing product, key properties and functions to decrease, increase the quantity and delete the product */}
 
                 {products.map((product)=>{                
                     return(
@@ -127,6 +147,7 @@ class Cart extends React.Component{
                             key={product.id}
                             onDecreaseQuantity={this.handleDecreaseQuantity}
                             onIncreaseQuantity={this.handleIncreaseQuantity}
+                            onDelete={this.handleDelete}
 
                         />
                     )
