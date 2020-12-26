@@ -5,60 +5,14 @@ import React from "react";
 // defining and exporting the cart item class that extends the React.component class
 
 class CartItem extends React.Component{    
-    
-    // decrease quantity function to decrease the quantity of the item
-
-    decreaseQuantity=()=>{
-
-        // setting the minimum quantity of the item to be 0
-
-        const {qty}=this.state;
-                    
-        if(qty==0){
-
-            alert("Cannot decrease quantity futher");
-            return ;
-
-        }
-
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty-1
-            }
-        });
-
-    }
-
-    // increase quantity function to increase the quantity of the item
-
-    increaseQuantity=()=>{   
-
-        // setting the maximum quantity of the item to be 10
-
-        const {qty}=this.state;
-        
-        if(qty==10){
-
-            alert("Cannot increase quantity further");
-            return ;
-
-        }
-
-        this.setState((prevState)=>{
-            return {
-                qty: prevState.qty+1
-            }
-        });
-        
-    }
 
     // rendering the cart item component that returns the jsx for the cart item
 
-    render(){
+    render(){        
 
         // getting the values of the property object of the props object(object restructuring)
 
-        const {description, title, price, qty}=this.props.product;        
+        const {description, title, price, qty}=this.props.product;              
 
         return(            
 
@@ -95,11 +49,13 @@ class CartItem extends React.Component{
 
                         {/* cart item options */}
 
-                        <div className="cart-item-options dec-option" onClick={this.decreaseQuantity}>
+                        {/* calling the on increase and on decrease quantity functions of the props on the click of plus and minus buttons respectively and passing to them the product */}
+
+                        <div className="cart-item-options dec-option" onClick={()=>this.props.onDecreaseQuantity(this.props.product)}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992683.svg" alt="minus"/>
                         </div>
 
-                        <div className="cart-item-options inc-option" onClick={this.increaseQuantity}>
+                        <div className="cart-item-options inc-option" onClick={()=>(this.props.onIncreaseQuantity(this.props.product))}>
                             <img src="https://www.flaticon.com/svg/static/icons/svg/992/992651.svg" alt="plus"/></div>                      
 
                         <div className="cart-item-options delete-option">
