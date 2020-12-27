@@ -8,7 +8,7 @@ const CartItem=(props)=>{
 
     //getting the values of the needed properties and functions from props.product and props(object restructuring) 
 
-    const {description, title, price, qty}=props.product;    
+    const {img, title, description, price, qty}=props.product;    
 
     const {
 
@@ -30,7 +30,7 @@ const CartItem=(props)=>{
             {/* cart item image container */}
 
             <div className="cart-item-img-container">
-                <img style={styles.image}/>
+                <img src={img} alt={title}/>
             </div>
 
             {/* cart item main content and options container */}
@@ -43,10 +43,10 @@ const CartItem=(props)=>{
 
                     {/* cart item heading, description, price and quantity */}
 
-                    <div className="cart-item-heading" style={{fontSize: 25}}>{title}</div>
-                    <div className="cart-item-description" style={{color: "grey"}}>{description}</div>
-                    <div className="cart-item-price" style={{color: "grey"}}>Rs: {price}</div>
-                    <div className="cart-item-quantity" style={{color: "grey"}}>Qty: {qty}</div>
+                    <div className="cart-item-heading">{title}</div>
+                    <div className="cart-item-description">{description}</div>
+                    <div className="cart-item-price">Rs: <span className="price">{price}</span></div>
+                    <div className="cart-item-quantity">Qty: <span className="quantity">{qty}</span></div>
 
                 </div>                    
 
@@ -76,23 +76,6 @@ const CartItem=(props)=>{
         </div>
 
     );
-
-}
-
-// defining the styles object
-
-const styles={
-
-    // defining the image style object
-
-    image: {
-
-        height: 100,
-        width: 100,
-        borderRadius: 5,
-        backgroundColor: "lightgrey"
-
-    }
 
 }
 

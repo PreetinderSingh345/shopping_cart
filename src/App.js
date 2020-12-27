@@ -19,7 +19,7 @@ class App extends React.Component {
 
         {
 
-          img: "",
+          img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9iaWxlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Phone",
           description: "A phone",
           price: 999,
@@ -30,7 +30,7 @@ class App extends React.Component {
 
         {
 
-          img: "",
+          img: "https://images.unsplash.com/photo-1492065438790-d3c90cbc6e57?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
           title: "Watch",
           description: "A watch",
           price: 99,
@@ -41,12 +41,133 @@ class App extends React.Component {
 
         {
 
-          img: "",
+          img: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Laptop",
           description: "A laptop",
           price: 9999,
           qty: 8,
           id: 3
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1586952518485-11b180e92764?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBjJTIwc2NyZWVufGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Desktop",
+          description: "A desktop",
+          price: 999,
+          qty: 1,
+          id: 4
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1518894781321-630e638d0742?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8c2hvZXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Shoes",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 5
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1595576700326-bdb94c8d4156?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8bWFza3xlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Mask",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 6
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1579038932368-c8da2ebcbd79?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Headphones",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 7
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1515775356328-191f2e02390e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fGdsYXNzZXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Specs",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 8
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vdGJhbGx8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Football",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 9
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1579260668779-fb03c244ab66?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Speaker",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 10
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1518888732246-9f52469bfa65?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hyaXN0bWFzfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Decorations",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 11
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1587385789097-0197a7fbd179?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y3JpY2tldHxlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Ball",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 12
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1596162955779-9c8faa3d4e3c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGUlMjB0ZW5uaXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Chair",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 13
+
+        },
+
+        {
+
+          img: "https://images.unsplash.com/photo-1593085260707-5377ba37f868?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dGFibGV8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+          title: "Shelf",
+          description: "A phone",
+          price: 999,
+          qty: 1,
+          id: 14
 
         }
           
@@ -147,13 +268,32 @@ class App extends React.Component {
 
   }
 
+  // get total amount function to get the total amount of the items
+
+  getTotalAmount=()=>{
+
+    // getting the products array and initialising the amount
+
+    const {products}=this.state;
+    let amount=0;
+
+    // iterating over the products, adding their commulative prices to amount and returning it
+
+    products.forEach((product)=>{
+      amount+=(product.qty*product.price);
+    });
+
+    return amount;
+
+  }
+
   render(){
 
     // getting the products array
 
     const {products}=this.state;
 
-    // returning the App component, comprising of the Navbar and the Cart components(with their props)
+    // returning the App component, comprising of the Navbar, the Cart components and the footer component(with their props)
 
     return (
 
@@ -171,6 +311,10 @@ class App extends React.Component {
           onDelete={this.handleDelete}
         
         />
+
+        <div id="footer">
+          <span>Subtotal: <span id="total">{this.getTotalAmount()}</span></span>
+        </div>
   
       </div>
   
