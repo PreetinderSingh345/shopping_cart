@@ -3,161 +3,37 @@
 import React from "react";
 import CartItem from "./CartItem";
 
-// defining and exporting the cart class that extends the React.component class
+// defining and exporting the Cart function
 
-class Cart extends React.Component{
+const Cart=(props)=>{
 
-    // defining the constructor, calling the super constructor(of the React.Component class) and defining the state object containing the props of each cart item component inside products array
+    //getting the products array from the props
 
-    constructor(){
+    const {products}=props;
 
-        super();
+    return(
 
-        this.state={           
-            products: [
+        <div className="cart">
 
-                {
+            {/* iterating over the products and returning each CartItem component with its props object,containing product, key properties and functions to decrease, increase the quantity and delete the product */}
 
-                    img: "",
-                    title: "Phone",
-                    description: "A phone",
-                    price: 999,
-                    qty: 1,
-                    id: 1
-
-                },
-
-                {
-
-                    img: "",
-                    title: "Watch",
-                    description: "A watch",
-                    price: 99,
-                    qty: 4,
-                    id: 2
-
-                },
-
-                {
-
-                    img: "",
-                    title: "Laptop",
-                    description: "A laptop",
-                    price: 9999,
-                    qty: 8,
-                    id: 3
-
-                }
+            {products.map((product)=>{                
+                return(
+                    <CartItem 
                 
-            ]
-        }
+                        product={product} 
+                        key={product.id}
+                        onDecreaseQuantity={props.onDecreaseQuantity}
+                        onIncreaseQuantity={props.onIncreaseQuantity}
+                        onDelete={props.onDelete}
 
-    } 
+                    />
+                )
+            })}
 
-    // handle decrease quantity function to decrease the quantity of the product
+        </div>
 
-    handleDecreaseQuantity=(product)=>{        
-
-        // getting the products array and the index of the product passed as argument inisde the array
-        
-        const {products}=this.state;
-        const index=products.indexOf(product);
-
-        // setting the mininum quantity for the product
-
-        if(products[index].qty==0){
-            return ;
-        }
-
-        // making chnages in the quantity of the product and setting the state of products to the new products array
-
-        products[index].qty--;
-
-        this.setState({
-            products: products
-        });
-
-    }
-    
-    // handle increase quantity function to increase the quantity of the product
-
-    handleIncreaseQuantity=(product)=>{   
-        
-        // getting the products array and the index of the product passed as argument inisde the array
-
-        const {products}=this.state;
-        const index=products.indexOf(product);
-
-        // setting the maximum quantity for the product
-
-        if(products[index].qty==10){
-            
-            alert("Cannot increase quantity further");
-            return ;
-        
-        }
-
-        // making chnages in the quantity of the product and setting the state of products to the new products array
-
-        products[index].qty++;
-
-        this.setState({
-            products: products
-        });
-
-    }    
-
-    // handle delete function to delete the product associated with the provided id
-
-    handleDelete=(id)=>{
-
-        // getting the products array and filtering the array to remove the product with the id i.e. passed as the argument
-
-        const {products}=this.state;
-
-        const items=products.filter((item)=>{
-            return item.id!=id
-        })
-
-        // setting the state of products to the items
-
-        this.setState({
-            products: items
-        })
-
-    }
-
-    render(){
-
-        //getting the products array property of the state object
-
-        const {products}=this.state;
-
-        return(
-
-            <div className="cart">
-
-                {/* iterating over the porducts and returning each CartItem component with its props object,containing product, key properties and functions to decrease, increase the quantity and delete the product */}
-
-                {products.map((product)=>{                
-                    return(
-                        <CartItem 
-                    
-                            product={product} 
-                            key={product.id}
-                            onDecreaseQuantity={this.handleDecreaseQuantity}
-                            onIncreaseQuantity={this.handleIncreaseQuantity}
-                            onDelete={this.handleDelete}
-
-                        />
-                    )
-                })}
-
-            </div>
-
-        );
-
-    }
+    );
 
 }
 

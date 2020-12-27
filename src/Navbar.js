@@ -4,7 +4,7 @@ import React from "react";
 
 // defining and exporting the Navbar function
 
-const Navbar=()=>{
+const Navbar=(props)=>{
 
         // returning the jsx for the Navbar
 
@@ -13,7 +13,7 @@ const Navbar=()=>{
             <div style={styles.cartItemContainer}>
 
                 <img style={styles.image} src="https://www.flaticon.com/svg/static/icons/svg/1170/1170678.svg" alt="cart-icon"/>
-                <span>3</span>
+                <span>{props.count}</span>
 
             </div>
 
