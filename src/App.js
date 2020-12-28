@@ -1,8 +1,11 @@
-// importing react, Cart and Navbar components
+// importing react, Cart and Navbar components and font awesome icons
 
 import React from "react";
 import Cart from "./Cart";
 import Navbar from "./Navbar";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons";
 
 // defining and exporting the App class which extends the React.Component class 
 
@@ -21,8 +24,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9iaWxlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Phone",
-          description: "A phone",
-          price: 999,
+          description: "Iphone 11",
+          price: 64999,
           qty: 1,
           id: 1
 
@@ -32,9 +35,9 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1492065438790-d3c90cbc6e57?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
           title: "Watch",
-          description: "A watch",
-          price: 99,
-          qty: 4,
+          description: "Titan classic",
+          price: 5999,
+          qty: 1,
           id: 2
 
         },
@@ -43,9 +46,9 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Laptop",
-          description: "A laptop",
-          price: 9999,
-          qty: 8,
+          description: "Macbook air",
+          price: 54999,
+          qty: 1,
           id: 3
 
         },
@@ -54,8 +57,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1586952518485-11b180e92764?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHBjJTIwc2NyZWVufGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Desktop",
-          description: "A desktop",
-          price: 999,
+          description: "Hp ultra",
+          price: 69999,
           qty: 1,
           id: 4
 
@@ -65,8 +68,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1518894781321-630e638d0742?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8c2hvZXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Shoes",
-          description: "A phone",
-          price: 999,
+          description: "Adidas air 2",
+          price: 4999,
           qty: 1,
           id: 5
 
@@ -76,8 +79,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1595576700326-bdb94c8d4156?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8bWFza3xlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Mask",
-          description: "A phone",
-          price: 999,
+          description: "Lee cooper",
+          price: 499,
           qty: 1,
           id: 6
 
@@ -87,8 +90,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1579038932368-c8da2ebcbd79?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8aGVhZHBob25lc3xlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Headphones",
-          description: "A phone",
-          price: 999,
+          description: "Marshall 3",
+          price: 12999,
           qty: 1,
           id: 7
 
@@ -98,8 +101,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1515775356328-191f2e02390e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fGdsYXNzZXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Specs",
-          description: "A phone",
-          price: 999,
+          description: "Rayban slim",
+          price: 2999,
           qty: 1,
           id: 8
 
@@ -109,8 +112,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1606925797300-0b35e9d1794e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vdGJhbGx8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Football",
-          description: "A phone",
-          price: 999,
+          description: "Puma lite",
+          price: 3499,
           qty: 1,
           id: 9
 
@@ -120,8 +123,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1579260668779-fb03c244ab66?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnxlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Speaker",
-          description: "A phone",
-          price: 999,
+          description: "Marshall base",
+          price: 34999,
           qty: 1,
           id: 10
 
@@ -131,8 +134,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1518888732246-9f52469bfa65?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hyaXN0bWFzfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Decorations",
-          description: "A phone",
-          price: 999,
+          description: "Home decor",
+          price: 599,
           qty: 1,
           id: 11
 
@@ -142,7 +145,7 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1587385789097-0197a7fbd179?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Y3JpY2tldHxlbnwwfDJ8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Ball",
-          description: "A phone",
+          description: "SG cherry",
           price: 999,
           qty: 1,
           id: 12
@@ -153,8 +156,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1596162955779-9c8faa3d4e3c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8dGFibGUlMjB0ZW5uaXN8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Chair",
-          description: "A phone",
-          price: 999,
+          description: "New tech",
+          price: 4999,
           qty: 1,
           id: 13
 
@@ -164,8 +167,8 @@ class App extends React.Component {
 
           img: "https://images.unsplash.com/photo-1593085260707-5377ba37f868?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dGFibGV8ZW58MHwyfDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
           title: "Shelf",
-          description: "A phone",
-          price: 999,
+          description: "Home solutions",
+          price: 7999,
           qty: 1,
           id: 14
 
@@ -214,7 +217,7 @@ class App extends React.Component {
 
     if(products[index].qty==10){
         
-      alert("Cannot increase quantity further");
+      alert("The seller does not allow more than 10 items for a customer");
       return ;
     
     }
@@ -313,7 +316,11 @@ class App extends React.Component {
         />
 
         <div id="footer">
-          <span>Subtotal: <span id="total">{this.getTotalAmount()}</span></span>
+
+          <FontAwesomeIcon id="bill-icon" icon={faMoneyBillAlt}/>
+          <span>Subtotal : </span>
+          <span id="total">{this.getTotalAmount()}</span>
+
         </div>
   
       </div>

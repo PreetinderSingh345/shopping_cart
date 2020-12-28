@@ -1,6 +1,9 @@
-// importing react
+// importing react and font awesome icons
 
 import React from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 // defining and exporting the Navbar function
 
@@ -12,8 +15,9 @@ const Navbar=(props)=>{
 
             <div id="navbar">
 
-                <img src="https://www.flaticon.com/svg/static/icons/svg/1170/1170678.svg" alt="cart-icon"/>
-                <span>{props.count}</span>
+                <span id="heading">Your Cart</span>
+                <FontAwesomeIcon id="cart-icon" icon={faCartArrowDown}/>
+                <span id="item-count">{props.count}</span>
 
             </div>
 

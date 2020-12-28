@@ -13,7 +13,7 @@ const Cart=(props)=>{
 
     return(
 
-        <div className="cart">
+        <div id="cart">
 
             {/* iterating over the products and returning each CartItem component with its props object,containing product, key properties and functions to decrease, increase the quantity and delete the product */}
 

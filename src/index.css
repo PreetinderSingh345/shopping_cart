@@ -5,8 +5,11 @@ body {
   margin: 10px 0;  
   font-family: sans-serif;
   background-color: #cadffa;
+  min-width: 280px;
 
 }
+
+/* navbar */
 
 #navbar{
     
@@ -17,7 +20,7 @@ body {
   align-items: center;
   padding: 5px;
   background-color: #32527b;
-  transition: box-shadow 0.3s ease-in-out;  
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 
 }
 
@@ -25,15 +28,39 @@ body {
   box-shadow: 0 0 4px 4px inset #5f94da;
 }
 
-#navbar img{
+/* heading */
 
-  height: 40px;
-  width: 40px;
+#heading{
+
+  font-size: 2rem;  
+  color: lightcyan;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: auto;
+  text-shadow: 0 0 4px lightskyblue;
 
 }
 
-#navbar span{
+/* cart icon */
 
+#cart-icon{
+
+  height: 35px;
+  width: 35px;
+  color: rgb(188, 228, 253);
+  transition: color 0.3s ease-in-out;
+
+}
+
+#cart-icon:hover{
+  color: lightskyblue;
+}
+
+/* item count */
+
+#item-count{
+
+  cursor: context-menu;
   height: 30px;
   width: 30px;  
   margin: 5px;
@@ -45,12 +72,20 @@ body {
   font-weight: bold;
   border: 2px outset white;
   border-radius: 50%;
+  transition:  color 0.3s ease-in-out;
+
+}
+
+#item-count:hover{
+
+  text-shadow: 0 0 4px black;
+  color: lightskyblue;
 
 }
 
 /* cart */
 
-.cart{
+#cart{
 
   overflow: auto;
   height: 78.8vh;
@@ -67,12 +102,13 @@ body {
 .cart-item{
    
   max-height: 130px;
-  width: 250px;  
+  width: 250px; 
   margin: 20px;
   padding: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;      
+  justify-content: space-between;  
+  align-items: center;
   border-radius: 5px;  
   box-shadow: 0 0 4px 4px  lightgrey;
   background-color:whitesmoke;
@@ -84,34 +120,43 @@ body {
   box-shadow: 0 0 4px 4px rgb(131, 130, 130);
 }
 
+/* cart item image container */
+
 .cart-item-img-container{
 
-  height: 110px;
-  width: 110px;
-  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  width: 120px;      
 
 }
 
 .cart-item-img-container img{
 
-  height: inherit;
-  width: inherit;
-  border: 2px outset grey;
-  border-radius: 5px;
+  height: 110px;
+  width: 110px;
+  box-shadow: 0 0 2px 2px grey;
+  border-radius: 10px;  
 
 }
 
+/* cart item main content and options container */
+
 .cart-item-main-content-options-container{
 
-  width: 45%;
   padding: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: rgb(226, 224, 224);  
+  background-color: rgb(236, 234, 234);    
+  box-shadow: 0 0 2px 2px inset lightgrey;
   border-radius: 5px;
 
 }
+
+/* cart item heading */
 
 .cart-item-heading{
 
@@ -122,6 +167,8 @@ body {
 
 }
 
+/* cart item description */
+
 .cart-item-description{  
 
   color: darkslategray;
@@ -129,6 +176,8 @@ body {
   font-size: 0.8rem;
 
 }
+
+/* cart item price */
 
 .cart-item-price{
 
@@ -139,9 +188,13 @@ body {
 
 }
 
+/* price */
+
 .price{
   font-weight: bold;
 }
+
+/* cart item quantity */
 
 .cart-item-quantity{
 
@@ -151,32 +204,10 @@ body {
 
 }
 
+/* quantity */
+
 .quantity{
   font-weight: bold;
-}
-
-.cart-item-options-container{
-  
-  
-
-}
-
-.cart-item-options{
-
-  padding: 7px;
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease-in-out;
-
-}
-
-.cart-item-options:hover{
-  box-shadow: 0 0 2px 2px inset rgb(160, 160, 160);
-}
-
-.cart-item-options img{
-
-  color: darkslategrey;  
-
 }
 
 /* cart item options container */
@@ -193,19 +224,28 @@ body {
 
 .cart-item-options{
 
-  height: 20px;
-  width: 20px;
+  cursor: pointer;
+  color: grey;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
 
 }
 
-/* images inside cart item options */
+.cart-item-options:hover{
 
-.cart-item-options img{
-
-  height: inherit;
-  width: inherit;
+  color: darkslategrey;
+  box-shadow: 0 0 2px 2px inset rgb(160, 160, 160);
 
 }
+
+/* footer */
 
 #footer{
 
@@ -225,13 +265,41 @@ body {
   box-shadow: 0 0 4px 4px inset lightgrey;
 }
 
+/* bill icon */
+
+#bill-icon{
+
+  height: 35px;
+  width: 35px;
+  margin: 0 5px;
+  transition: color 0.3s ease-in-out;
+
+}
+
+#bill-icon:hover{
+  color: skyblue;
+}
+
+/* total */
+
 #total{
 
+  cursor: context-menu;
   color: white;
   font-weight: bold;
   margin: 5px 10px 5px 5px;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 
 }
+
+#total:hover{
+
+  text-shadow: 0 0 4px black;
+  color: skyblue;
+
+}
+
+/* scrollbar */
 
 ::-webkit-scrollbar{
 

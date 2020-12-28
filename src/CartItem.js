@@ -1,6 +1,9 @@
-// importing react
+// importing react and font awesome icons
 
 import React from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 // defining and exporting the CartItem function and passing to it the props object
 
@@ -59,14 +62,15 @@ const CartItem=(props)=>{
                     {/* calling the on increase, on decrease quantity and on delete functions of the props on the click of plus, minus and delete buttons respectively and passing to them the product(product id in case of delete) */}
 
                     <div className="cart-item-options dec-option" onClick={()=>onDecreaseQuantity(product)}>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/992/992683.svg" alt="minus"/>
+                        <FontAwesomeIcon icon={faMinus}/>
                     </div>
 
                     <div className="cart-item-options inc-option" onClick={()=>onIncreaseQuantity(product)}>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/992/992651.svg" alt="plus"/></div>                      
+                        <FontAwesomeIcon icon={faPlus}/>    
+                    </div>                      
 
                     <div className="cart-item-options delete-option" onClick={()=>onDelete(product.id)}>
-                        <img src="https://www.flaticon.com/svg/static/icons/svg/1345/1345874.svg" alt="delete"/>
+                        <FontAwesomeIcon icon={faTrashAlt}/>
                     </div>
 
                 </div>
