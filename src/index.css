@@ -5,7 +5,8 @@ body {
   margin: 10px 0;  
   font-family: sans-serif;
   background-color: #cadffa;
-  min-width: 280px;
+  min-width: 280px;  
+  min-height: 96vh;
 
 }
 
@@ -21,6 +22,7 @@ body {
   padding: 5px;
   background-color: #32527b;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  min-height: 40px;
 
 }
 
@@ -239,10 +241,25 @@ body {
 }
 
 .cart-item-options:hover{
-
-  color: darkslategrey;
   box-shadow: 0 0 2px 2px inset rgb(160, 160, 160);
+}
 
+/* decrease option */
+
+.dec-option:hover{
+  color: rgb(100, 188, 218);
+}
+
+/* increase option */
+
+.inc-option:hover{
+  color: rgb(87, 211, 87);
+}
+
+/* delete option */
+
+.delete-option:hover{
+  color: rgb(216, 85, 85);
 }
 
 /* footer */
@@ -258,6 +275,7 @@ body {
   color: whitesmoke;  
   background-color: #616575;
   transition: box-shadow 0.3s ease-in-out;
+  min-height: 40px;
 
 }
 
@@ -313,9 +331,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb{
+
   background-color: grey;
+  box-shadow: 0 0 2px 2px inset white;
+
 }
 
 ::-webkit-scrollbar-thumb:hover{
-  background-color: rgb(63, 62, 62);
+
+  background-color: whitesmoke;
+  box-shadow: 0 0 2px 2px inset darkslategrey;  
+
 }
