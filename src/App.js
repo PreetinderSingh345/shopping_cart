@@ -64,30 +64,6 @@ class App extends React.Component {
 
   }
 
-  // add product function to add a product to the database(passed in the form of an object, then we print the document reference(after the add promise is resolved) and have a catch statement(to catch any error))
-
-  addProduct=()=>{
-
-    this.db
-      .collection("products")  
-      .add({
-
-        img: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
-        title: "Laptop",
-        description: "Macbook air",
-        price: "54999",
-        qty: "1"
-
-      })
-      .then((docRef)=>{ 
-        console.log("Product has been added to the database : ",docRef);
-      })
-      .catch((err)=>{
-        console.log("Error while adding product : "+err);
-      })
-
-  }
-
   // handle decrease quantity function to decrease the quantity of the product
 
   handleDecreaseQuantity=(product)=>{        
@@ -103,13 +79,22 @@ class App extends React.Component {
       return ;
     }
 
-    // making chnages in the quantity of the product and setting the state of products to the new products array
+    // getting the reference of the document to be updated inside the database
 
-    products[index].qty--;
+    const docRef=this.db.collection("products").doc(products[index].id);
 
-    this.setState({
-      products: products
-    });
+    // updating the quantity inside the document and printing a message for success/error
+
+    docRef
+      .update({
+        qty: products[index].qty-1
+      })
+      .then(()=>{
+        console.log("Updated successfully");
+      })
+      .catch((err)=>{
+        console.log("Error while updating : "+err);
+      })
 
   }
 
@@ -131,13 +116,22 @@ class App extends React.Component {
     
     }
 
-    // making chnages in the quantity of the product and setting the state of products to the new products array
+    // getting the reference of the document to be updated inside the database
 
-    products[index].qty++;
+    const docRef=this.db.collection("products").doc(products[index].id);
 
-    this.setState({
-      products: products
-    });
+    // updating the quantity inside the document and printing a message for success/error
+
+    docRef
+      .update({
+        qty: products[index].qty+1
+      })
+      .then(()=>{
+        console.log("Updated successfully");
+      })
+      .catch((err)=>{
+        console.log("Error while updating : "+err);
+      });
 
   }    
 
@@ -216,18 +210,6 @@ class App extends React.Component {
         />
 
         {loading && <h1>Loading products</h1>}
-
-        <button onClick={this.addProduct} style={{
-
-          padding: 10,
-          margin: 10,
-          backgroundColor: "lightsteelblue",
-          border: "2px outline darkslategrey",
-          borderRadius: "10px",
-          fontWeight: "bold",
-          outline: "none"
-
-        }}>Add product</button>
 
         <Cart
         
