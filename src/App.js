@@ -32,13 +32,12 @@ class App extends React.Component {
 
   componentDidMount(){
 
-    // making queries to the firestore(through firebase), to get the snapshot of the products(obtained in then, after the get promise is resolved) collection 
+    // making queries to the firestore(through firebase) and adding on snapshot event listener(to listen for changes inside the products collection and re-render the component accordingly)
 
     firebase.default
       .firestore()
       .collection("products")
-      .get()
-      .then((snapshot)=>{
+      .onSnapshot((snapshot)=>{
 
         // iterating on the documents(each document is a product) of the snapshot, adding an id property to each product and populating products
 
