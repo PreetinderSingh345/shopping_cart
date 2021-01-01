@@ -13,7 +13,7 @@ import * as firebase from "firebase";
 
 class App extends React.Component {
 
-  // defining the constructor, calling the super constructor(of the React.Component class) and defining the state object containing the products array(empty initially) and the loading value(true initially)
+  // defining the constructor, calling the super constructor(of the React.Component class), defining the state object containing the products array(empty initially) and the loading value(true initially) and the database
 
   constructor(){
 
@@ -26,16 +26,17 @@ class App extends React.Component {
 
     }
 
+    this.db=firebase.default.firestore();
+
   } 
 
   // component did mount function(called once, when the component is rendered initially) to make queries to the database(firebase)
 
   componentDidMount(){
 
-    // making queries to the firestore(through firebase) and adding on snapshot event listener(to listen for changes inside the products collection and re-render the component accordingly)
+    // making queries to the firestore(through firebase) i.e our database and adding on snapshot event listener(to listen for changes inside the products collection and re-render the component accordingly)
 
-    firebase.default
-      .firestore()
+    this.db
       .collection("products")
       .onSnapshot((snapshot)=>{
 
@@ -60,6 +61,30 @@ class App extends React.Component {
         });
 
       });
+
+  }
+
+  // add product function to add a product to the database(passed in the form of an object, then we print the document reference(after the add promise is resolved) and have a catch statement(to catch any error))
+
+  addProduct=()=>{
+
+    this.db
+      .collection("products")  
+      .add({
+
+        img: "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFwdG9wfGVufDB8MnwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60",
+        title: "Laptop",
+        description: "Macbook air",
+        price: "54999",
+        qty: "1"
+
+      })
+      .then((docRef)=>{ 
+        console.log("Product has been added to the database : ",docRef);
+      })
+      .catch((err)=>{
+        console.log("Error while adding product : "+err);
+      })
 
   }
 
@@ -180,7 +205,7 @@ class App extends React.Component {
 
     const {products, loading}=this.state;
 
-    // returning the App component, comprising of the Navbar, the loading html text(shown while the products are being fetched), the Cart components and the footer component(with their props)
+    // returning the App component, comprising of the Navbar, the loading html text(shown while the products are being fetched), an add product button(to add a laptop) with basic styling, the Cart components and the footer component(with their props)
 
     return (
 
@@ -191,6 +216,18 @@ class App extends React.Component {
         />
 
         {loading && <h1>Loading products</h1>}
+
+        <button onClick={this.addProduct} style={{
+
+          padding: 10,
+          margin: 10,
+          backgroundColor: "lightsteelblue",
+          border: "2px outline darkslategrey",
+          borderRadius: "10px",
+          fontWeight: "bold",
+          outline: "none"
+
+        }}>Add product</button>
 
         <Cart
         
