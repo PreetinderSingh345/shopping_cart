@@ -13,7 +13,7 @@ import * as firebase from "firebase";
 
 class App extends React.Component {
 
-  // defining the constructor, calling the super constructor(of the React.Component class), defining the state object containing the products array(empty initially) and the loading value(true initially) and the database
+  // defining the constructor, calling the super constructor(of the React.Component class), defining the state object containing the products array(empty initially), the loading value(true initially), the selected value(pAsc-price and ascending initially) and the database
 
   constructor(){
 
@@ -22,11 +22,12 @@ class App extends React.Component {
     this.state={        
 
       products: [],
-      loading: true
+      loading: true,
+      selectedValue: "pAsc"
 
     }
 
-    this.db=firebase.default.firestore();
+    this.db=firebase.default.firestore();    
 
   } 
 
@@ -38,6 +39,7 @@ class App extends React.Component {
 
     this.db
       .collection("products")
+      .orderBy("price", "asc")
       .onSnapshot((snapshot)=>{
 
         // iterating on the documents(each document is a product) of the snapshot, adding an id property to each product and populating products
@@ -83,18 +85,29 @@ class App extends React.Component {
 
     const docRef=this.db.collection("products").doc(products[index].id);
 
+    // resetting the selected and sort value(on snapshot will set it again to price-low to high)
+
+    this.setState({
+      selectedValue: "pAsc"
+    }, ()=>{
+
+      let element=document.getElementById("sort");
+      element.value="pAsc";
+
+    }); 
+
     // updating the quantity inside the document and printing a message for success/error
 
     docRef
       .update({
         qty: products[index].qty-1
-      })
-      .then(()=>{
+      })      
+      .then(()=>{     
         console.log("Updated successfully");
       })
       .catch((err)=>{
         console.log("Error while updating : "+err);
-      })
+      });    
 
   }
 
@@ -119,6 +132,17 @@ class App extends React.Component {
     // getting the reference of the document to be updated inside the database
 
     const docRef=this.db.collection("products").doc(products[index].id);
+
+    // resetting the selected and sort value(on snapshot will set it again to price-low to high)
+
+    this.setState({
+      selectedValue: "pAsc"
+    }, ()=>{
+
+      let element=document.getElementById("sort");
+      element.value="pAsc";
+
+    }); 
 
     // updating the quantity inside the document and printing a message for success/error
 
@@ -195,6 +219,72 @@ class App extends React.Component {
 
   }
 
+  // handle sort function to sort the products 
+
+  handleSort=(event)=>{    
+
+    // defining field and aOrd(ascending or descending) values according to the selectedValue
+  
+    let field=null;
+    let aOrD=null;    
+
+    let selectedValue=event.target.value;          
+
+    if(selectedValue[0]=="p"){
+      field="price";
+    }
+    else{
+      field="qty";
+    }
+
+    if(selectedValue[1]=="A"){
+      aOrD="asc";
+    }
+    else{
+      aOrD="desc";    
+    }
+
+    // setting the state to the new selectedValue and loading value
+
+    this.setState({
+
+      selectedValue: selectedValue,        
+      loading: true
+
+    });   
+
+    // sorting the products according to the field and aOrD values
+    
+      this.db
+        .collection("products")
+        .orderBy(field, aOrD)      
+        .get()
+        .then((snapshot)=>{
+
+          // getting the products array
+
+          const products=snapshot.docs.map((doc)=>{
+
+            const product=doc.data();
+            product["id"]=doc.id;
+            
+            return product;
+
+          });
+
+          // setting the state to the new products and loading value
+
+          this.setState({
+
+            products: products,
+            loading: false
+
+          });
+          
+        });
+        
+  }
+
   render(){
 
     // getting the properties of the state
@@ -208,7 +298,11 @@ class App extends React.Component {
       <div className="App">        
           
         <Navbar
-          count={this.getItemCount()}
+
+          selectValue={this.state.selectedValue}
+          handleSort={this.handleSort}
+          count={this.getItemCount()}        
+
         />                
 
         {

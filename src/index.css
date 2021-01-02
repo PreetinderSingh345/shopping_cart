@@ -43,6 +43,40 @@ body {
 
 }
 
+@media only screen and (max-width: 420px){
+
+  body #heading{
+    display: none;
+  }
+
+  body #navbar{
+    justify-content: space-around;
+  }
+
+}
+
+/* sort dropdown */
+
+#sort{
+
+  border: none;    
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #cadffa;
+  transition: box-shadow 0.3s ease-in-out;
+  color: darkslategrey;  
+
+}
+
+#sort:hover{
+  box-shadow: 0 0 2px 2px lightskyblue;
+}
+
+#sort:focus{
+  outline: none;
+}
+
 /* cart icon */
 
 #cart-icon{
@@ -51,6 +85,7 @@ body {
   width: 35px;
   color: rgb(188, 228, 253);
   transition: color 0.3s ease-in-out;
+  margin: 5px;
 
 }
 
