@@ -139,19 +139,21 @@ class App extends React.Component {
 
   handleDelete=(id)=>{
 
-    // getting the products array and filtering the array to remove the product with the id i.e. passed as the argument
+    // getting the reference of the document to be deleted inside the database
 
-    const {products}=this.state;
+    const docRef=this.db.collection("products").doc(id);
 
-    const items=products.filter((item)=>{
-      return item.id!=id
-    })
+    // deleting the document and printing a message for success/error
 
-    // setting the state of products to the items
+    docRef
+      .delete()
+      .then(()=>{
+        console.log("Deleted successfully")      
+      })
+      .catch((err)=>{
+        console.log("Error while deleting : "+err);
+      })
 
-    this.setState({
-      products: items
-    });
 
   }
 
