@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import Navbar from "./Navbar";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoneyBillAlt } from "@fortawesome/free-solid-svg-icons";
+import { faMoneyBillAlt, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 import * as firebase from "firebase";
 
@@ -199,7 +199,7 @@ class App extends React.Component {
 
     const {products, loading}=this.state;
 
-    // returning the App component, comprising of the Navbar, the loading html text(shown while the products are being fetched), an add product button(to add a laptop) with basic styling, the Cart components and the footer component(with their props)
+    // returning the App component, comprising of the Navbar, the loading html text(shown while the products are being fetched), the Cart component(shown when the products have been fetched) and the footer component(with their props)
 
     return (
 
@@ -207,18 +207,27 @@ class App extends React.Component {
           
         <Navbar
           count={this.getItemCount()}
-        />
+        />                
 
-        {loading && <h1>Loading products</h1>}
+        {
+          
+          loading 
+          
+          ? <div id="loading-container">
+          <FontAwesomeIcon icon={faSpinner} id="loading-icon"/>
+          <span>Loading</span>
+          </div>            
 
-        <Cart
+          :<Cart          
         
           products={products}
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onIncreaseQuantity={this.handleIncreaseQuantity}
           onDelete={this.handleDelete}
         
-        />
+          />
+
+        }
 
         <div id="footer">
 

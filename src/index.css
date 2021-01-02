@@ -85,6 +85,43 @@ body {
 
 }
 
+/* loading container */
+
+#loading-container{
+
+  font-size: 2rem;
+  color: #568acf;  
+  height: 78.8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+
+}
+
+/* rotate animation */
+
+@keyframes rotate{
+
+  from{}
+
+  to{
+    transform: rotateZ(360deg);
+  }
+
+}
+
+/* loading icon */
+
+#loading-icon{
+   
+  animation: rotate 4s infinite;
+  margin: 5px;
+  color: #1e57a1;
+
+}
+
 /* cart */
 
 #cart{
